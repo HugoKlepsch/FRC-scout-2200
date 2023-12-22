@@ -13,14 +13,21 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             List {
-                NavigationLink(destination: Main2024()) {
-                    Text("2024")
+                Section(header: Text("Years")) {
+                    NavigationLink(destination: Main2024()) {
+                        Text("2024")
+                    }
+                    NavigationLink(destination: Main2023()) {
+                        Text("2023")
+                    }
                 }
-                NavigationLink(destination: Main2023()) {
-                    Text("2023")
+                Section() {
+                    NavigationLink(destination: Settings()) {
+                        Text("Settings")
+                    }
                 }
             }
-            .navigationTitle("Year")
+            .navigationTitle("Scout")
         }
     }
 }

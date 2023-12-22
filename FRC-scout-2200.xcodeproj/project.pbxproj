@@ -13,6 +13,8 @@
 		9A8ABF1A2B3285FC003FC675 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8ABF192B3285FC003FC675 /* Preview Assets.xcassets */; };
 		9A8ABF232B32867F003FC675 /* Main2024.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF222B32867F003FC675 /* Main2024.swift */; };
 		9A8ABF262B353396003FC675 /* Main2023.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF252B353396003FC675 /* Main2023.swift */; };
+		9A8ABF2A2B354AC2003FC675 /* QRViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF292B354AC2003FC675 /* QRViewer.swift */; };
+		9A8ABF2C2B354C96003FC675 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF2B2B354C96003FC675 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		9A8ABF192B3285FC003FC675 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9A8ABF222B32867F003FC675 /* Main2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2024.swift; sourceTree = "<group>"; };
 		9A8ABF252B353396003FC675 /* Main2023.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2023.swift; sourceTree = "<group>"; };
+		9A8ABF292B354AC2003FC675 /* QRViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRViewer.swift; path = "FRC-scout-2200/QRViewer.swift"; sourceTree = SOURCE_ROOT; };
+		9A8ABF2B2B354C96003FC675 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			isa = PBXGroup;
 			children = (
 				9A8ABF242B353377003FC675 /* Years */,
-				9A8ABF122B3285FB003FC675 /* FRC_scout_2200App.swift */,
 				9A8ABF142B3285FB003FC675 /* ContentView.swift */,
+				9A8ABF122B3285FB003FC675 /* FRC_scout_2200App.swift */,
+				9A8ABF292B354AC2003FC675 /* QRViewer.swift */,
 				9A8ABF162B3285FC003FC675 /* Assets.xcassets */,
 				9A8ABF182B3285FC003FC675 /* Preview Content */,
+				9A8ABF2B2B354C96003FC675 /* Settings.swift */,
 			);
 			path = "FRC-scout-2200";
 			sourceTree = "<group>";
@@ -75,10 +81,26 @@
 		9A8ABF242B353377003FC675 /* Years */ = {
 			isa = PBXGroup;
 			children = (
-				9A8ABF222B32867F003FC675 /* Main2024.swift */,
-				9A8ABF252B353396003FC675 /* Main2023.swift */,
+				9A8ABF282B354A92003FC675 /* 2024 */,
+				9A8ABF272B354A86003FC675 /* 2023 */,
 			);
 			path = Years;
+			sourceTree = "<group>";
+		};
+		9A8ABF272B354A86003FC675 /* 2023 */ = {
+			isa = PBXGroup;
+			children = (
+				9A8ABF252B353396003FC675 /* Main2023.swift */,
+			);
+			path = 2023;
+			sourceTree = "<group>";
+		};
+		9A8ABF282B354A92003FC675 /* 2024 */ = {
+			isa = PBXGroup;
+			children = (
+				9A8ABF222B32867F003FC675 /* Main2024.swift */,
+			);
+			path = 2024;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +173,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8ABF2C2B354C96003FC675 /* Settings.swift in Sources */,
 				9A8ABF152B3285FB003FC675 /* ContentView.swift in Sources */,
+				9A8ABF2A2B354AC2003FC675 /* QRViewer.swift in Sources */,
 				9A8ABF262B353396003FC675 /* Main2023.swift in Sources */,
 				9A8ABF232B32867F003FC675 /* Main2024.swift in Sources */,
 				9A8ABF132B3285FB003FC675 /* FRC_scout_2200App.swift in Sources */,
