@@ -10,10 +10,12 @@ import SwiftUI
 
 struct Main2023: View {
     @State private var team = ""
-    @State private var teamNumber = 0
+    @State private var isQualifying = true
+    @State private var match = ""
+    
+    let range = 0...500
     @State private var numConesInAuto = 0
     @State private var numCubesInAuto = 0
-    let range = 0...500
     @State private var movedInAuto = false
     @State private var dockedInAuto = false
     @State private var balancedInAuto = false
@@ -25,6 +27,7 @@ struct Main2023: View {
     
     func toQRString() -> String {
         let columns = [
+            String(match),
             String(team),
             String(numConesInAuto),
             String(numCubesInAuto),
@@ -43,7 +46,14 @@ struct Main2023: View {
         NavigationStack{
             Form {
                 Section("General") {
-                    TextEntryWithLabel(hint: "Team", text: $team, numeric: true, validator: TextEntryWithLabel.numericValidator)
+                    TextEntryWithLabel(hint: "Team number", text: $team, numeric: true, validator: TextEntryWithLabel.numericValidator)
+                    Toggle(isOn: $isQualifying) {
+                        Text("Qualifying match")
+                    }
+                    TextEntryWithLabel(hint: isQualifying ? "Qualifying match (q1, Q84 etc)" : "Match (QFR1M1, FM1 etc)", text: $match, numeric: false, validator: { (value) in
+                        // TODO: validate this match name better
+                        return true
+                    })
                 }
                 Section("Autonomous") {
                     Stepper(
@@ -84,6 +94,12 @@ struct Main2023: View {
                     ) {
                         Text("Cubes: \(numCubesInTele)")
                             .foregroundStyle(Color.purple)
+                    }
+                    Toggle(isOn: $dockedInTele) {
+                        Text("Docked")
+                    }
+                    Toggle(isOn: $balancedInTele) {
+                        Text("Balanced")
                     }
                 }
             }
