@@ -21,11 +21,6 @@ struct ContentView: View {
                         Text("2023")
                     }
                 }
-                Section() {
-                    NavigationLink(destination: Settings()) {
-                        Text("Settings")
-                    }
-                }
             }
             .navigationTitle("Scout")
         }

@@ -23,7 +23,6 @@ struct QRViewer: View {
             VStack{
                 Text(qr_text)
                     .monospaced()
-                    .background(.secondary)
                 Image(uiImage: generateQRCode(from: qr_text))
                     .resizable()
                     .interpolation(.none)
@@ -35,6 +34,7 @@ struct QRViewer: View {
         }
     }
     
+    // Google this code and you'll find where I took it from
     func generateQRCode(from string: String) -> UIImage {
         filter.message = Data(string.utf8)
         
@@ -49,5 +49,5 @@ struct QRViewer: View {
 }
 
 #Preview {
-    QRViewer("sample text")
+    QRViewer("sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text sample text ")
 }

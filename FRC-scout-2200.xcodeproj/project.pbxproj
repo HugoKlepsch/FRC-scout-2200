@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A161B6C2B37C62600AE5E1D /* TextEntryWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A161B6B2B37C62600AE5E1D /* TextEntryWithLabel.swift */; };
 		9A8ABF132B3285FB003FC675 /* FRC_scout_2200App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF122B3285FB003FC675 /* FRC_scout_2200App.swift */; };
 		9A8ABF152B3285FB003FC675 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF142B3285FB003FC675 /* ContentView.swift */; };
 		9A8ABF172B3285FC003FC675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8ABF162B3285FC003FC675 /* Assets.xcassets */; };
@@ -14,10 +15,10 @@
 		9A8ABF232B32867F003FC675 /* Main2024.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF222B32867F003FC675 /* Main2024.swift */; };
 		9A8ABF262B353396003FC675 /* Main2023.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF252B353396003FC675 /* Main2023.swift */; };
 		9A8ABF2A2B354AC2003FC675 /* QRViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF292B354AC2003FC675 /* QRViewer.swift */; };
-		9A8ABF2C2B354C96003FC675 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8ABF2B2B354C96003FC675 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A161B6B2B37C62600AE5E1D /* TextEntryWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryWithLabel.swift; sourceTree = "<group>"; };
 		9A8ABF0F2B3285FB003FC675 /* FRC-scout-2200.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FRC-scout-2200.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8ABF122B3285FB003FC675 /* FRC_scout_2200App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRC_scout_2200App.swift; sourceTree = "<group>"; };
 		9A8ABF142B3285FB003FC675 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		9A8ABF222B32867F003FC675 /* Main2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2024.swift; sourceTree = "<group>"; };
 		9A8ABF252B353396003FC675 /* Main2023.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2023.swift; sourceTree = "<group>"; };
 		9A8ABF292B354AC2003FC675 /* QRViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRViewer.swift; path = "FRC-scout-2200/QRViewer.swift"; sourceTree = SOURCE_ROOT; };
-		9A8ABF2B2B354C96003FC675 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A161B6A2B37C5D300AE5E1D /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				9A161B6B2B37C62600AE5E1D /* TextEntryWithLabel.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		9A8ABF062B3285FB003FC675 = {
 			isa = PBXGroup;
 			children = (
@@ -59,13 +67,13 @@
 		9A8ABF112B3285FB003FC675 /* FRC-scout-2200 */ = {
 			isa = PBXGroup;
 			children = (
+				9A161B6A2B37C5D300AE5E1D /* Elements */,
 				9A8ABF242B353377003FC675 /* Years */,
 				9A8ABF142B3285FB003FC675 /* ContentView.swift */,
 				9A8ABF122B3285FB003FC675 /* FRC_scout_2200App.swift */,
 				9A8ABF292B354AC2003FC675 /* QRViewer.swift */,
 				9A8ABF162B3285FC003FC675 /* Assets.xcassets */,
 				9A8ABF182B3285FC003FC675 /* Preview Content */,
-				9A8ABF2B2B354C96003FC675 /* Settings.swift */,
 			);
 			path = "FRC-scout-2200";
 			sourceTree = "<group>";
@@ -173,11 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8ABF2C2B354C96003FC675 /* Settings.swift in Sources */,
 				9A8ABF152B3285FB003FC675 /* ContentView.swift in Sources */,
 				9A8ABF2A2B354AC2003FC675 /* QRViewer.swift in Sources */,
 				9A8ABF262B353396003FC675 /* Main2023.swift in Sources */,
 				9A8ABF232B32867F003FC675 /* Main2024.swift in Sources */,
+				9A161B6C2B37C62600AE5E1D /* TextEntryWithLabel.swift in Sources */,
 				9A8ABF132B3285FB003FC675 /* FRC_scout_2200App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,17 +317,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FRC-scout-2200/Preview Content\"";
 				DEVELOPMENT_TEAM = Z76727PTL8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "2200 Scouting app";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,17 +351,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FRC-scout-2200/Preview Content\"";
 				DEVELOPMENT_TEAM = Z76727PTL8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "2200 Scouting app";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
