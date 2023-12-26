@@ -7,30 +7,34 @@
 
 import SwiftUI
 
+public typealias ValueValidator = (String) -> Bool
 
-struct TextEntryWithLabel: View {
-    typealias ValueValidator = (String) -> Bool
-    
-    var hint: String
-    @Binding var text: String
-    var numeric: Bool = false
-    var validator: ValueValidator?
-    
-    public static let numericValidator: ValueValidator = { value in
-        if value.isEmpty {
-            return true
-        } else {
-            let parsedInt = Int(value)
-            return parsedInt != nil
-        }
+public let numericValidator: ValueValidator = { value in
+    if value.isEmpty {
+        return true
+    } else {
+        let parsedInt = Int(value)
+        return parsedInt != nil
     }
+}
+
+struct TextEntryWithLabel<FocusType: Hashable>: View {
+    private var hint: String
+    @Binding private var text: String
+    private var numeric: Bool = false
+    private var validator: ValueValidator?
+    private var focused: FocusState<FocusType>.Binding
+    private var focusValue: FocusType
     
-    init(hint: String, text: Binding<String>, numeric: Bool = false, validator: @escaping ValueValidator = {_ in return true}) {
+    init(hint: String, text: Binding<String>, numeric: Bool = false, focusVar: FocusState<FocusType>.Binding,
+         focusValue: FocusType, validator: @escaping ValueValidator = {_ in return true}) {
         self.hint = hint
         // Underscore prefix is odd, see this link for details: https://stackoverflow.com/a/56975728
         _text = text
         self.numeric = numeric
         self.validator = validator
+        self.focused = focusVar
+        self.focusValue = focusValue
     }
     
     var hintStyle: some ShapeStyle {
@@ -61,6 +65,7 @@ struct TextEntryWithLabel: View {
                 .scaleEffect(text.isEmpty ? 1.0 : 0.8, anchor: .leading)
             TextField("", text: $text)
                 .keyboardType(numeric ? .numberPad : .default)
+                .focused(focused, equals: focusValue)
         }
         .padding(.top, text.isEmpty ? 0 : 15)
         .animation(.spring(), value: text.isEmpty)
@@ -69,28 +74,34 @@ struct TextEntryWithLabel: View {
 
 #Preview("Numeric empty") {
     @State var variable = ""
+    @FocusState var focused: Bool
     return Form {
-        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: true)
+        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: true, focusVar: $focused, focusValue: true,
+                           validator: numericValidator)
     }
 }
 
 #Preview("Numeric") {
     @State var variable = "2200"
+    @FocusState var focused: Bool
     return Form {
-        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: true)
+        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: true, focusVar: $focused, focusValue: true,
+                           validator: numericValidator)
     }
 }
 
 #Preview("Not numeric empty") {
     @State var variable = ""
+    @FocusState var focused: Bool
     return Form {
-        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: false)
+        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: false, focusVar: $focused, focusValue: true)
     }
 }
 
 #Preview("Not numeric") {
     @State var variable = "Not numberic"
+    @FocusState var focused: Bool
     return Form {
-        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: false)
+        TextEntryWithLabel(hint: "My Label", text: $variable, numeric: false, focusVar: $focused, focusValue: true)
     }
 }

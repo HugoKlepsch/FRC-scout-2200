@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct Main2024: View {
+    private enum Field: Int, CaseIterable {
+        case team, match
+    }
+    
+    @FocusState private var focusedField: Field?
+    
     @State private var team = ""
     @State private var isQualifying = true
     @State private var match = ""
@@ -27,11 +33,15 @@ struct Main2024: View {
         NavigationStack{
             Form {
                 Section("General") {
-                    TextEntryWithLabel(hint: "Team number", text: $team, numeric: true, validator: TextEntryWithLabel.numericValidator)
+                    TextEntryWithLabel(hint: "Team number", text: $team, numeric: true, focusVar: $focusedField,
+                                       focusValue: Field.team, validator: numericValidator)
                     Toggle(isOn: $isQualifying) {
                         Text("Qualifying match")
                     }
-                    TextEntryWithLabel(hint: isQualifying ? "Qualifying match (q1, Q84 etc)" : "Match (QFR1M1, FM1 etc)", text: $match, numeric: false, validator: { (value) in
+                    TextEntryWithLabel(hint: isQualifying ? "Qualifying match (q1, Q84 etc)" : "Match (QFR1M1, FM1 etc)", 
+                                       text: $match, numeric: false,
+                                       focusVar: $focusedField, focusValue: Field.match,
+                                       validator: { (value) in
                         // TODO: validate this match name better
                         return true
                     })
@@ -40,11 +50,20 @@ struct Main2024: View {
                 }
                 Section("Teleoperated") {
                 }
-            }
-            NavigationLink(destination: QRViewer(toQRString())) {
-                Text("Generate QR Code")
+                Section {
+                    NavigationLink(destination: QRViewer(toQRString())) {
+                        Text("Generate QR Code")
+                    }
+                }
             }
             .navigationTitle("2024")
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Close Keyboard") {
+                        focusedField = nil
+                    }
+                }
+            }
         }
     }
 }
