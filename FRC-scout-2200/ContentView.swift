@@ -15,8 +15,9 @@ struct ContentView: View {
             List {
                 Section(header: Text("Years")) {
                     NavigationLink(destination: Main2024()) {
-                        Text("2024")
+                        Text("2024 (coming soon)")
                     }
+                    .disabled(true)
                     NavigationLink(destination: Main2023()) {
                         Text("2023")
                     }
